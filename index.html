@@ -3,32 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <title>Medinem 💖</title>
-  <link rel="stylesheet" href="Style.css">
-  <script>
-    // --- Şifre ---
-    const dogruSifre = "09092023";
-
-    function sifreSor() {
-      let girilen = prompt("💖 Şifremiz neydi? (İpucu: Yıldönümümüz)");
-      if (girilen !== dogruSifre) {
-        alert("Yanlış şifre! Tekrar dene 💔");
-        document.body.innerHTML = "<h2 style='color:red;text-align:center;margin-top:50px'>❌ Yanlış şifre!</h2>";
-      } else {
-        document.getElementById("icerik").style.display = "block";
-      }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom right, #ffe6f0, #fff5e6);
+      margin: 0;
+      padding: 0;
     }
 
-    window.onload = sifreSor;
-  </script>
+    .password-screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      background: #fff0f5;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff4d79;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .content {
+      display: none;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #e60073;
+    }
+
+    .galeri {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .galeri img {
+      width: 320px;
+      max-width: 90%;
+      border-radius: 20px;
+      box-shadow: 0px 5px 25px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .galeri img:hover {
+      transform: scale(1.1);
+    }
+
+    iframe {
+      margin-top: 20px;
+      border-radius: 15px;
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-  <!-- Doğru şifre girilirse açılacak kısım -->
-  <div id="icerik" style="display:none; text-align:center; margin-top:50px;">
+
+  <!-- Şifre ekranı -->
+  <div class="password-screen" id="passwordScreen">
+    <h2>💖 Medinem için özel 💖</h2>
+    <p>Şifreyi gir:</p>
+    <input type="password" id="passwordInput">
+    <button onclick="checkPassword()">Giriş yap</button>
+    <p class="hint">💡 İpucu: 09.09.2023 (yıldönümümüz)</p>
+  </div>
+
+  <!-- Asıl içerik -->
+  <div class="content" id="content">
     <h1>💖 Hoşgeldin Medinem 💖</h1>
     <p>Bu site sadece senin için hazırlandı 🌹</p>
-    <img src="IMG-20250528-WA0092.jpg" width="300">
-    <img src="IMG-20250528-WA0112.jpg" width="300">
-    <img src="IMG-20250919-WA0034.jpg" width="300">
+
+    <!-- Şarkı -->
+    <iframe width="300" height="170" 
+      src="https://www.youtube.com/embed/gEY32HNAkvI?autoplay=0" 
+      frameborder="0" allowfullscreen>
+    </iframe>
+
+    <!-- Foto Galeri -->
+    <div class="galeri">
+      <img src="IMG-20250528-WA0092.jpg" alt="foto1">
+      <img src="IMG-20250528-WA0112.jpg" alt="foto2">
+      <img src="IMG-20250919-WA0034.jpg" alt="foto3">
+    </div>
   </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("passwordInput").value;
+      if (password === "09092023") {
+        document.getElementById("passwordScreen").style.display = "none";
+        document.getElementById("content").style.display = "block";
+      } else {
+        alert("Yanlış şifre! Tekrar dene 💔");
+      }
+    }
+  </script>
+
 </body>
 </html>
