@@ -4,6 +4,20 @@
   <meta charset="UTF-8">
   <title>Medinem 💖</title>
   <link rel="stylesheet" href="Style.css">
+  <script>
+    // --- Şifre ---
+    const dogruSifre = "09092023"; 
+
+    function sifreSor() {
+      let girilen = prompt("💖 Şifremiz neydi? (İpucu: Şifremiz yıldönümümüz 💌)");
+      if (girilen !== dogruSifre) {
+        alert("Yanlış şifre! Tekrar dene 💌");
+        // Yanlışsa siteyi kapatalım
+        document.body.innerHTML = "<h2 style='text-align:center;color:red;'>Erişim reddedildi ❌</h2>";
+      }
+    }
+    window.onload = sifreSor;
+  </script>
 </head>
 <body>
   <h1>Medinem</h1>
@@ -15,4 +29,4 @@
     <img src="IMG-20250919-WA0034.jpg" alt="Fotoğraf 3">
   </div>
 </body>
-  </html>
+</html>
